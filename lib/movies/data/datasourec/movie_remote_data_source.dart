@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:move_app/core/error/exceptions.dart';
+import 'package:move_app/core/network/error_message_model.dart';
 import 'package:move_app/movies/data/models/movie_model.dart';
 
 class MovieRemoteDataSource {
@@ -10,7 +12,8 @@ class MovieRemoteDataSource {
         (e) => MovieModel.formJson(e),
       ));
     } else {
-      return [];
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.formJson(response.data));
     }
   }
 }

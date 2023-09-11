@@ -61,7 +61,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   FutureOr<void> _getTopRatedMovies(
       GetTopRatedMoviesEvent event, Emitter<MoviesState> emit) async {
-    final result = await getTopRatedMoviesUseCase.call();
+    final result = await getTopRatedMoviesUseCase();
     result.fold(
       (l) => emit(state.copyWith(
         topRatedState: RequestState.error,

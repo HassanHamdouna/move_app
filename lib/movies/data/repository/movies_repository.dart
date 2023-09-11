@@ -6,7 +6,7 @@ import 'package:move_app/movies/domain/entities/movie.dart';
 import 'package:move_app/movies/domain/repository/base_movie_repository.dart';
 
 class MoviesRepository extends BaseMoviesRepository {
-  final BaseRemoteDataSource baseRemoteDataSource;
+  final BaseMovieRemoteDataSource baseRemoteDataSource;
 
   MoviesRepository(this.baseRemoteDataSource);
 
@@ -32,7 +32,7 @@ class MoviesRepository extends BaseMoviesRepository {
 
   @override
   Future<Either<Failure, List<Movie>>> getTopRateMovies() async {
-    final result = await baseRemoteDataSource.getPopularMovies();
+    final result = await baseRemoteDataSource.getTopRatedMovies();
     try {
       return Right(result);
     } on ServerException catch (failure) {

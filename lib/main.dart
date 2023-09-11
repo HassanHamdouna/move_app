@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:move_app/core/services/services_locator.dart';
+import 'package:move_app/movies/data/datasourec/movie_remote_data_source.dart';
+import 'package:move_app/movies/data/repository/movies_repository.dart';
+import 'package:move_app/movies/domain/repository/base_movie_repository.dart';
+import 'package:move_app/movies/domain/useCase/get_now_playing_movies_usecase.dart';
 import 'package:move_app/movies/presentation/screens/movies_screen.dart';
 
-void main() {
+void main() async{
+  ServicesLocator().init();
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainMoviesScreen(),
+      home: const MoviesScreen(),
     );
   }
 }

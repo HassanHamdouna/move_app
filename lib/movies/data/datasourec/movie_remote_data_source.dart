@@ -4,7 +4,7 @@ import 'package:move_app/core/network/api_constance.dart';
 import 'package:move_app/core/network/error_message_model.dart';
 import 'package:move_app/movies/data/models/movie_model.dart';
 
-abstract class BaseRemoteDataSource {
+abstract class BaseMovieRemoteDataSource {
   Future<List<MovieModel>> getNowPlayingMovies();
 
   Future<List<MovieModel>> getPopularMovies();
@@ -12,7 +12,7 @@ abstract class BaseRemoteDataSource {
   Future<List<MovieModel>> getTopRatedMovies();
 }
 
-class MovieRemoteDataSource extends BaseRemoteDataSource {
+class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   @override
   Future<List<MovieModel>> getNowPlayingMovies() async {
     final response = await Dio().get(ApiConstance.nowPlayingMoviesPath);

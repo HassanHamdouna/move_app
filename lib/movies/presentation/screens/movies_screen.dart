@@ -1,33 +1,35 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:move_app/core/network/api_constance.dart';
-import 'package:move_app/core/utils/dummy.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
+import 'package:move_app/movies/presentation/controllers/movies_event.dart';
+import '../../../core/services/services_locator.dart';
 import '../components/now_palying_component.dart';
 import '../components/popular_component.dart';
 import '../components/top_rated_component.dart';
 
-class MainMoviesScreen extends StatelessWidget {
-  const MainMoviesScreen({Key? key}) : super(key: key);
+class MoviesScreen extends StatelessWidget {
+  const MoviesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade900,
-      body: SingleChildScrollView(
-        key: const Key('movieScrollView'),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const NowPlayingComponent(),
-            popular(),
-            const PopularComponent(),
-            topRated(),
-            const TopRatedComponent(),
-            const SizedBox(height: 50.0),
-          ],
+    return BlocProvider(
+      create: (BuildContext context) => sl<MoviesBloc>()..add(GetNowPlayingMoviesEvent())..add(GetPopularMoviesEvent())..add(GetTopRatedMoviesEvent()),
+      child: Scaffold(
+        backgroundColor: Colors.grey.shade900,
+        body: SingleChildScrollView(
+          key: const Key('movieScrollView'),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const NowPlayingComponent(),
+              popular(),
+              const PopularComponent(),
+              topRated(),
+              const TopRatedComponent(),
+              const SizedBox(height: 50.0),
+            ],
+          ),
         ),
       ),
     );
@@ -105,6 +107,3 @@ class MainMoviesScreen extends StatelessWidget {
     );
   }
 }
-
-
-

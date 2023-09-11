@@ -3,7 +3,7 @@ import 'package:move_app/core/utils/enums.dart';
 import 'package:move_app/movies/domain/entities/movie.dart';
 
 class MoviesState extends Equatable {
-  final  List<Movie> nowPlayingMovies;
+  final List<Movie> nowPlayingMovies;
   final RequestState nowPlayingState;
   final String nowPlayingMessage;
   final List<Movie> popularMovies;
@@ -37,22 +37,21 @@ class MoviesState extends Equatable {
     String? topRatedMessage,
   }) {
     return MoviesState(
-        nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
-        nowPlayingState: nowPlayingState ?? this.nowPlayingState,
+      nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
+      nowPlayingState: nowPlayingState ?? this.nowPlayingState,
       nowPlayingMessage: nowPlayingMessage ?? this.nowPlayingMessage,
-      popularMovies:  popularMovies ?? this.popularMovies,
-      popularState:  popularState ?? this.popularState,
-      popularMessage:  popularMessage ?? this.popularMessage,
-      topRatedMovies:  topRatedMovies ?? this.topRatedMovies,
-      topRatedState:  topRatedState ?? this.topRatedState,
-      topRatedMessage:  topRatedMessage ?? this.topRatedMessage,
+      popularMovies: popularMovies ?? this.popularMovies,
+      popularState: popularState ?? this.popularState,
+      popularMessage: popularMessage ?? this.popularMessage,
+      topRatedMovies: topRatedMovies ?? this.topRatedMovies,
+      topRatedState: topRatedState ?? this.topRatedState,
+      topRatedMessage: topRatedMessage ?? this.topRatedMessage,
     );
   }
 
   @override
   // TODO: implement props
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         nowPlayingMovies,
         nowPlayingState,
         nowPlayingMessage,

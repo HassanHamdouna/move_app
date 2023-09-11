@@ -25,14 +25,15 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     on<GetTopRatedMoviesEvent>(_getTopRatedMovies);
   }
 
-  FutureOr<void> _getNowPlayingMovies(GetNowPlayingMoviesEvent event, Emitter<MoviesState> emit) async {
+  FutureOr<void> _getNowPlayingMovies(
+      GetNowPlayingMoviesEvent event, Emitter<MoviesState> emit) async {
     final result = await getNowPlayingMoviesUseCase.execute();
     result.fold(
-          (l) => emit(state.copyWith(
+      (l) => emit(state.copyWith(
         nowPlayingState: RequestState.error,
         nowPlayingMessage: l.message,
       )),
-          (r) => emit(
+      (r) => emit(
         state.copyWith(
           nowPlayingMovies: r,
           nowPlayingState: RequestState.loaded,
@@ -41,16 +42,15 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     );
   }
 
-
-  FutureOr<void> _getPopularMovies(GetPopularMoviesEvent event, Emitter<MoviesState> emit) async{
+  FutureOr<void> _getPopularMovies(
+      GetPopularMoviesEvent event, Emitter<MoviesState> emit) async {
     final result = await getPopularMoviesUseCase.execute();
-    print(result);
     result.fold(
-          (l) => emit(state.copyWith(
+      (l) => emit(state.copyWith(
         popularState: RequestState.error,
         popularMessage: l.message,
       )),
-          (r) => emit(
+      (r) => emit(
         state.copyWith(
           popularMovies: r,
           popularState: RequestState.loaded,
@@ -59,14 +59,15 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     );
   }
 
-  FutureOr<void> _getTopRatedMovies(GetTopRatedMoviesEvent event, Emitter<MoviesState> emit) async{
+  FutureOr<void> _getTopRatedMovies(
+      GetTopRatedMoviesEvent event, Emitter<MoviesState> emit) async {
     final result = await getTopRatedMoviesUseCase.execute();
     result.fold(
-          (l) => emit(state.copyWith(
+      (l) => emit(state.copyWith(
         topRatedState: RequestState.error,
         topRatedMessage: l.message,
       )),
-          (r) => emit(
+      (r) => emit(
         state.copyWith(
           topRatedMovies: r,
           topRatedState: RequestState.loaded,

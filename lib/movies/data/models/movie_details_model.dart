@@ -12,12 +12,12 @@ class MovieDetailsModel extends MovieDetail {
       required super.runtime,
       required super.voteAverage});
 
-  factory MovieDetailsModel.json(Map<String, dynamic> json) =>
+  factory MovieDetailsModel.fromJson(Map<String, dynamic> json) =>
       MovieDetailsModel(
           id: json['id'],
           backdropPath: json['backdrop_path'],
           genres: List<GenresModel>.from(json['genres']
-              .map((indexObjects) => GenresModel.json(indexObjects))),
+              .map((indexObjects) => GenresModel.fromJson(indexObjects))),
           title: json['title'],
           overview: json[''],
           releaseDate: json['release_date'],

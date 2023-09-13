@@ -24,25 +24,27 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
     final result =
         await getMovieDetailsUseCase(MovieDetailsParameters(movieId: event.id));
     result.fold(
-        (l) => state.copeWith(
-            movieDetailMessage: l.message,
-            movieDetailState: RequestState.error),
-        (r) => state.copeWith(
-            movieDetailState: RequestState.loaded, movieDetail: r));
+        (l) => emit(state.copeWith(
+              movieDetailState: RequestState.error,
+              movieDetailMessage: l.message,
+            )),
+        (r) => emit(state.copeWith(
+            movieDetailState: RequestState.loaded, movieDetail: r)));
   }
 
   FutureOr<void> _getRecommendationMovie(GetRecommendationMovieEvent event,
       Emitter<MovieDetailsState> emit) async {
     final result = await getMovieRecommendationUseCase(
         MovieRecommendationParameters(id: event.id));
+
     result.fold(
-      (l) => state.copeWith(
+      (l) => emit(state.copeWith(
         movieRecommendationState: RequestState.error,
         movieRecommendationMessage: l.message,
-      ),
-      (r) => state.copeWith(
+      )),
+      (r) => emit(state.copeWith(
           movieRecommendationState: RequestState.loaded,
-          movieRecommendation: r),
+          movieRecommendation: r)),
     );
   }
 }

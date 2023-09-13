@@ -19,7 +19,7 @@ class MovieDetailsModel extends MovieDetail {
           genres: List<GenresModel>.from(json['genres']
               .map((indexObjects) => GenresModel.fromJson(indexObjects))),
           title: json['title'],
-          overview: json[''],
+          overview: json['overview'],
           releaseDate: json['release_date'],
           runtime: json['runtime'],
           voteAverage: json['vote_average']);

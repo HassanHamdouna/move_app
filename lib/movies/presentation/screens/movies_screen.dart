@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:move_app/core/utils/app_strings.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
 import 'package:move_app/movies/presentation/controllers/movies_event.dart';
 import '../../../core/services/services_locator.dart';
@@ -45,7 +46,7 @@ class MoviesScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Popular",
+            AppStrings.popular,
             style: GoogleFonts.poppins(
                 fontSize: 19,
                 fontWeight: FontWeight.w500,
@@ -60,7 +61,7 @@ class MoviesScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Text('See More',
+                  Text(AppStrings.seeMore,
                       style: GoogleFonts.poppins(color: Colors.white)),
                   const Icon(Icons.arrow_forward_ios,
                       size: 16.0, color: Colors.white)
@@ -80,7 +81,7 @@ class MoviesScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Top Rated",
+            AppStrings.topRated,
             style: GoogleFonts.poppins(
                 fontSize: 19,
                 fontWeight: FontWeight.w500,
@@ -95,7 +96,7 @@ class MoviesScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Text('See More',
+                  Text(AppStrings.seeMore,
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                       )),

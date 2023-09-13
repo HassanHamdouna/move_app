@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:move_app/core/network/api_constance.dart';
+import 'package:move_app/core/utils/app_strings.dart';
 import 'package:move_app/core/utils/dummy.dart';
 import 'package:move_app/core/utils/enums.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
@@ -85,7 +86,7 @@ class NowPlayingComponent extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 4.0),
                                       Text(
-                                        'Now Playing'.toUpperCase(),
+                                        AppStrings.nowPlaying.toUpperCase(),
                                         style: const TextStyle(
                                             fontSize: 16.0,
                                             color: Colors.white),

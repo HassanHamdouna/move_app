@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:move_app/core/services/services_locator.dart';
+import 'package:move_app/core/utils/app_strings.dart';
 import 'package:move_app/movies/data/datasourec/movie_remote_data_source.dart';
 import 'package:move_app/movies/data/repository/movies_repository.dart';
 import 'package:move_app/movies/domain/repository/base_movie_repository.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: AppStrings.appName,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

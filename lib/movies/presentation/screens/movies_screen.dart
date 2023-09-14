@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:move_app/core/utils/app_strings.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
 import 'package:move_app/movies/presentation/controllers/movies_event.dart';
+import 'package:move_app/movies/presentation/screens/list_popular_and_top_rated_screen.dart';
 import '../../../core/services/services_locator.dart';
 import '../components/now_palying_component.dart';
 import '../components/popular_component.dart';
@@ -11,6 +12,7 @@ import '../components/top_rated_component.dart';
 
 class MoviesScreen extends StatelessWidget {
   const MoviesScreen({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,9 @@ class MoviesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const NowPlayingComponent(),
-              popular(),
+              popular(context),
               const PopularComponent(),
-              topRated(),
+              topRated(context),
               const TopRatedComponent(),
               const SizedBox(height: 50.0),
             ],
@@ -39,7 +41,7 @@ class MoviesScreen extends StatelessWidget {
     );
   }
 
-  Widget popular() {
+  Widget popular(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 8.0),
       child: Row(
@@ -55,7 +57,7 @@ class MoviesScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              /// TODO : NAVIGATION TO POPULAR SCREEN
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const ListPopularAndTopRatedScreen(nameScreen: "popular"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -74,7 +76,7 @@ class MoviesScreen extends StatelessWidget {
     );
   }
 
-  Widget topRated() {
+  Widget topRated(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 8.0),
       child: Row(
@@ -90,7 +92,7 @@ class MoviesScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              /// TODO : NAVIGATION TO POPULAR SCREEN
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const ListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

@@ -15,12 +15,10 @@ class RecommendationsMoviesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('build RecommendationsMoviesComponent ');
     return BlocBuilder<MovieDetailsBloc, MovieDetailsState>(
          buildWhen: (previous, current) =>
          previous.movieRecommendationState != current.movieRecommendationState,
          builder: (context, state) {
-           print("_showRecommendations$state");
            switch (state.movieRecommendationState) {
              case RequestState.loading:
                return SliverGrid(

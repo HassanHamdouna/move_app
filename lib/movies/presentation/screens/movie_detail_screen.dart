@@ -13,7 +13,6 @@ class MovieDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("id : $id");
     return BlocProvider(
       create: (context) => sl<MovieDetailsBloc>()..add(GetDetailsMovieEvent(id))..add(GetRecommendationMovieEvent(id)),
       child: const Scaffold(

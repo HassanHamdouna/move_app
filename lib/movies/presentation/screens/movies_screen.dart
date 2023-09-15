@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:move_app/core/utils/app_strings.dart';
+import 'package:move_app/core/global/localization/app_strings.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
 import 'package:move_app/movies/presentation/controllers/movies_event.dart';
 import 'package:move_app/movies/presentation/screens/list_popular_and_top_rated_screen.dart';

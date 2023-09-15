@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:move_app/core/global/theme/app_color/app_colors_dark.dart';
 
 ThemeData getThemeDataDark() => ThemeData(
@@ -8,24 +9,25 @@ ThemeData getThemeDataDark() => ThemeData(
   primaryColorLight: AppColorsDark.primaryColor,
   primaryColorDark: AppColorsDark.primaryColor,
   canvasColor: AppColorsDark.primaryColor,
-  scaffoldBackgroundColor: AppColorsDark.primaryColor,
+  scaffoldBackgroundColor: AppColorsDark.backgroundColor,
   bottomAppBarColor: AppColorsDark.primaryColor,
+
   cardColor: AppColorsDark.primaryColor,
   dividerColor: AppColorsDark.primaryColor,
   focusColor: AppColorsDark.primaryColor,
   hoverColor: AppColorsDark.primaryColor,
   errorColor: AppColorsDark.primaryColor,
-  textSelectionTheme: TextSelectionThemeData(
+  textSelectionTheme: const TextSelectionThemeData(
     cursorColor: AppColorsDark.primaryColor,
-    selectionColor: AppColorsDark.primaryColor[100],
+    selectionColor: AppColorsDark.primaryColor,
     selectionHandleColor: AppColorsDark.primaryColor,
   ),
   appBarTheme: const AppBarTheme(
-    color: AppColorsDark.primaryColor,
-    iconTheme: IconThemeData(color: AppColorsDark.primaryColor),
+    color: AppColorsDark.appBarColor,
+    iconTheme: IconThemeData(color: AppColorsDark.appBarColor),
     textTheme:  TextTheme(
       headline6: TextStyle(
-        color: AppColorsDark.primaryColor,
+        color: AppColorsDark.appBarColor,
         fontSize: 20.0,
         fontWeight: FontWeight.bold,
       ),
@@ -36,9 +38,8 @@ ThemeData getThemeDataDark() => ThemeData(
     textTheme: ButtonTextTheme.primary,
   ),
   iconTheme: const IconThemeData(color: AppColorsDark.primaryColor),
-  textTheme: const TextTheme(
-    headline1: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-    headline2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+  textTheme: GoogleFonts.poppinsTextTheme().apply(
+    bodyColor: AppColorsDark.primaryColor, // Set the text color to white
   ),
   primaryTextTheme: const TextTheme(
     headline6: TextStyle(fontSize: 20.0, color: AppColorsDark.primaryColor),
@@ -46,12 +47,12 @@ ThemeData getThemeDataDark() => ThemeData(
   accentTextTheme: const TextTheme(
     bodyText2: TextStyle(fontSize: 16.0, color: AppColorsDark.primaryColor),
   ),
-  inputDecorationTheme: InputDecorationTheme(
-    border: const  OutlineInputBorder(),
-    focusedBorder: const  OutlineInputBorder(borderSide: BorderSide(color: AppColorsDark.primaryColor)),
-    fillColor: AppColorsDark.primaryColor[200],
+  inputDecorationTheme: const InputDecorationTheme(
+    border: OutlineInputBorder(),
+    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColorsDark.primaryColor)),
+    fillColor: AppColorsDark.primaryColor,
     filled: true,
-    labelStyle: const TextStyle(color: AppColorsDark.primaryColor),
+    labelStyle: TextStyle(color: AppColorsDark.primaryColor),
   ),
   sliderTheme: SliderThemeData(
     activeTrackColor: AppColorsDark.primaryColor,
@@ -94,19 +95,19 @@ ThemeData getThemeDataDark() => ThemeData(
     color: AppColorsDark.primaryColor,
     selectedColor: AppColorsDark.primaryColor,
     fillColor: AppColorsDark.primaryColor,
-    focusColor: AppColorsDark.primaryColor[100],
+    focusColor: AppColorsDark.primaryColor,
   ),
-  chipTheme: ChipThemeData(
+  chipTheme: const ChipThemeData(
     backgroundColor: AppColorsDark.primaryColor,
-    disabledColor: AppColorsDark.primaryColor[400],
+    disabledColor: AppColorsDark.primaryColor,
     selectedColor: AppColorsDark.primaryColor,
-    labelStyle: const TextStyle(color: AppColorsDark.primaryColor),
-    secondaryLabelStyle: const TextStyle(color: AppColorsDark.primaryColor),
-    padding: const EdgeInsets.all(8.0),
+    labelStyle: TextStyle(color: AppColorsDark.primaryColor),
+    secondaryLabelStyle: TextStyle(color: AppColorsDark.primaryColor),
+    padding: EdgeInsets.all(8.0),
   ),
-  snackBarTheme: SnackBarThemeData(
-    backgroundColor: AppColorsDark.primaryColor[800],
-    contentTextStyle: const TextStyle(color: AppColorsDark.primaryColor),
+  snackBarTheme: const SnackBarThemeData(
+    backgroundColor: AppColorsDark.primaryColor,
+    contentTextStyle: TextStyle(color: AppColorsDark.primaryColor),
     elevation: 4.0,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(

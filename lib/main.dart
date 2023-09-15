@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:move_app/core/global/theme/theme_data/theme_data_dark.dart';
 import 'package:move_app/core/services/services_locator.dart';
 import 'package:move_app/core/global/localization/app_strings.dart';
 import 'package:move_app/movies/data/datasourec/movie_remote_data_source.dart';
@@ -7,7 +8,7 @@ import 'package:move_app/movies/domain/repository/base_movie_repository.dart';
 import 'package:move_app/movies/domain/useCase/get_now_playing_movies_usecase.dart';
 import 'package:move_app/movies/presentation/screens/movies_screen.dart';
 
-void main() async{
+void main() async {
   ServicesLocator().init();
 
   runApp(const MyApp());
@@ -21,9 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.grey.shade900
-      ),
+      theme: getThemeDataDark(),
       home: const MoviesScreen(),
     );
   }

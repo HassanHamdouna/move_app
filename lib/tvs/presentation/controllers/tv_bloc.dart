@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:move_app/core/usecase/base_usecase.dart';
+import 'package:move_app/core/utils/enums.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_event.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_state.dart';
 
@@ -21,12 +23,39 @@ class TvBloc extends Bloc<TvEvent, TvState> {
     on<GetTVTopRatedEvent>(_getTopRatedTv);
   }
 
-  FutureOr<void> _getTopRatedTv(
-      GetTVTopRatedEvent event, Emitter<TvState> emit) {}
+  FutureOr<void> _getOnTheAirTv(GetTVOnTheAirEvent event, Emitter<TvState> emit) async{
+    final result = await getTvOnTheAirUseCase(const NoParameters());
+    result.fold((l) => emit(state.copyWith(
+      topRatedMessage: l.message,
+      topRatedState: RequestState.error,
+    )), (r) => state.copyWith(
+      topRatedTv: r,
+      topRatedState: RequestState.loaded,
+    ));
+  }
 
-  FutureOr<void> _getPopularTv(
-      GetTVPopularEvent event, Emitter<TvState> emit) {}
+  FutureOr<void> _getPopularTv(GetTVPopularEvent event, Emitter<TvState> emit) async{
+    final result = await getTVPopularUseCase(const NoParameters());
+    result.fold((l) => emit(state.copyWith(
+      topRatedMessage: l.message,
+      topRatedState: RequestState.error,
+    )), (r) => state.copyWith(
+      topRatedTv: r,
+      topRatedState: RequestState.loaded,
+    ));
+  }
 
-  FutureOr<void> _getOnTheAirTv(
-      GetTVOnTheAirEvent event, Emitter<TvState> emit) {}
+
+  FutureOr<void> _getTopRatedTv(GetTVTopRatedEvent event, Emitter<TvState> emit) async{
+    final result = await getTvTopRatedUseCase(const NoParameters());
+    result.fold((l) => emit(state.copyWith(
+      topRatedMessage: l.message,
+      topRatedState: RequestState.error,
+    )), (r) => state.copyWith(
+      topRatedTv: r,
+      topRatedState: RequestState.loaded,
+    ));
+  }
+
+
 }

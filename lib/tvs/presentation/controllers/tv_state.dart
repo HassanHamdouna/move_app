@@ -25,6 +25,30 @@ class TvState extends Equatable {
     this.topRatedMessage = "",
   });
 
+  TvState copyWith({
+    List<Tv>? onTheAirTv,
+    RequestState? onTheAirState,
+    String? onTheAirMessage,
+    List<Tv>? popularTv,
+    RequestState? popularState,
+    String? popularMessage,
+    List<Tv>? topRatedTv,
+    RequestState? topRatedState,
+    String? topRatedMessage,
+  }) {
+    return TvState(
+      onTheAirTv: onTheAirTv ?? this.onTheAirTv,
+      onTheAirState: onTheAirState ?? this.onTheAirState,
+      onTheAirMessage: onTheAirMessage ?? this.onTheAirMessage,
+      popularTv: popularTv ?? this.popularTv,
+      popularState: popularState ?? this.popularState,
+      popularMessage: popularMessage ?? this.popularMessage,
+      topRatedTv: topRatedTv ?? this.topRatedTv,
+      topRatedState: topRatedState ?? this.topRatedState,
+      topRatedMessage: topRatedMessage ?? this.topRatedMessage,
+    );
+  }
+
   @override
   List<Object> get props => [
         onTheAirTv,

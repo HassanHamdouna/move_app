@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:move_app/core/global/localization/app_strings.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
 import 'package:move_app/movies/presentation/controllers/movies_event.dart';
-import 'package:move_app/movies/presentation/screens/list_popular_and_top_rated_screen.dart';
+import 'package:move_app/movies/presentation/screens/movie_list_popular_and_top_rated_screen.dart';
 import '../../../core/services/services_locator.dart';
 import '../components/now_palying_component.dart';
 import '../components/popular_component.dart';
@@ -57,7 +57,7 @@ class MoviesScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const ListPopularAndTopRatedScreen(nameScreen: "popular"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const MovieListPopularAndTopRatedScreen(nameScreen: "popular"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -92,7 +92,7 @@ class MoviesScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const ListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const MovieListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

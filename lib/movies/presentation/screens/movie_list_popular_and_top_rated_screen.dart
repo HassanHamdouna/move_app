@@ -7,10 +7,10 @@ import 'package:move_app/movies/presentation/controllers/movies_event.dart';
 
 import '../../../core/services/services_locator.dart';
 
-class ListPopularAndTopRatedScreen extends StatelessWidget {
+class MovieListPopularAndTopRatedScreen extends StatelessWidget {
   final String nameScreen;
 
-  const ListPopularAndTopRatedScreen({super.key, required this.nameScreen});
+  const MovieListPopularAndTopRatedScreen({super.key, required this.nameScreen});
 
   @override
   Widget build(BuildContext context) {

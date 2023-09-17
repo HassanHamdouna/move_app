@@ -38,7 +38,6 @@ class ServicesLocator {
     sl.registerLazySingleton(() => GetTvOnTheAirUseCase(sl()));
     sl.registerLazySingleton(() => GetTvPopularUseCase(sl()));
     sl.registerLazySingleton(() => GetTvTopRatedUseCase(sl()));
-;
 
     /// Repository Movie
     sl.registerLazySingleton<BaseMoviesRepository>(() => MoviesRepository(sl()));

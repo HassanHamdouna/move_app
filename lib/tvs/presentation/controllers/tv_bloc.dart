@@ -23,39 +23,45 @@ class TvBloc extends Bloc<TvEvent, TvState> {
     on<GetTVTopRatedEvent>(_getTopRatedTv);
   }
 
-  FutureOr<void> _getOnTheAirTv(GetTVOnTheAirEvent event, Emitter<TvState> emit) async{
+  FutureOr<void> _getOnTheAirTv(
+      GetTVOnTheAirEvent event, Emitter<TvState> emit) async {
     final result = await getTvOnTheAirUseCase(const NoParameters());
-    result.fold((l) => emit(state.copyWith(
-      topRatedMessage: l.message,
-      topRatedState: RequestState.error,
-    )), (r) => state.copyWith(
-      topRatedTv: r,
-      topRatedState: RequestState.loaded,
-    ));
+    result.fold(
+        (l) => emit(state.copyWith(
+              topRatedMessage: l.message,
+              topRatedState: RequestState.error,
+            )),
+        (r) => state.copyWith(
+              topRatedTv: r,
+              topRatedState: RequestState.loaded,
+            ));
   }
 
-  FutureOr<void> _getPopularTv(GetTVPopularEvent event, Emitter<TvState> emit) async{
+  FutureOr<void> _getPopularTv(
+      GetTVPopularEvent event, Emitter<TvState> emit) async {
     final result = await getTVPopularUseCase(const NoParameters());
-    result.fold((l) => emit(state.copyWith(
-      topRatedMessage: l.message,
-      topRatedState: RequestState.error,
-    )), (r) => state.copyWith(
-      topRatedTv: r,
-      topRatedState: RequestState.loaded,
-    ));
+    result.fold(
+        (l) => emit(state.copyWith(
+              topRatedMessage: l.message,
+              topRatedState: RequestState.error,
+            )),
+        (r) => state.copyWith(
+              topRatedTv: r,
+              topRatedState: RequestState.loaded,
+            ));
   }
 
-
-  FutureOr<void> _getTopRatedTv(GetTVTopRatedEvent event, Emitter<TvState> emit) async{
+  FutureOr<void> _getTopRatedTv(
+      GetTVTopRatedEvent event, Emitter<TvState> emit) async {
     final result = await getTvTopRatedUseCase(const NoParameters());
-    result.fold((l) => emit(state.copyWith(
-      topRatedMessage: l.message,
-      topRatedState: RequestState.error,
-    )), (r) => state.copyWith(
-      topRatedTv: r,
-      topRatedState: RequestState.loaded,
-    ));
+    result.fold(
+        (l) => emit(state.copyWith(
+              topRatedMessage: l.message,
+              topRatedState: RequestState.error,
+            )),
+        (r) => state.copyWith(
+              topRatedTv: r,
+              topRatedState: RequestState.loaded,
+            ));
   }
-
-
 }

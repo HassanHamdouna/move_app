@@ -20,6 +20,7 @@ class MovieListPopularAndTopRatedScreen extends StatelessWidget {
         ..add(GetTopRatedMoviesEvent()),
       child: Scaffold(
         appBar: AppBar(
+          leading:  IconButton(onPressed: ()=>Navigator.pop(context),icon: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
           backgroundColor: Colors.black26,
           title: isPopularScreen
               ? const Text("popular Movies")

@@ -18,13 +18,13 @@ class TvBloc extends Bloc<TvEvent, TvState> {
   TvBloc(this.getTvOnTheAirUseCase, this.getTVPopularUseCase,
       this.getTvTopRatedUseCase)
       : super(const TvState()) {
-    on<GetTVOnTheAirEvent>(_getOnTheAirTv);
-    on<GetTVPopularEvent>(_getPopularTv);
-    on<GetTVTopRatedEvent>(_getTopRatedTv);
+    on<GetTvOnTheAirEvent>(_getOnTheAirTv);
+    on<GetTvPopularEvent>(_getPopularTv);
+    on<GetTvTopRatedEvent>(_getTopRatedTv);
   }
 
   FutureOr<void> _getOnTheAirTv(
-      GetTVOnTheAirEvent event, Emitter<TvState> emit) async {
+      GetTvOnTheAirEvent event, Emitter<TvState> emit) async {
     final result = await getTvOnTheAirUseCase(const NoParameters());
     result.fold(
         (l) => emit(state.copyWith(
@@ -38,7 +38,7 @@ class TvBloc extends Bloc<TvEvent, TvState> {
   }
 
   FutureOr<void> _getPopularTv(
-      GetTVPopularEvent event, Emitter<TvState> emit) async {
+      GetTvPopularEvent event, Emitter<TvState> emit) async {
     final result = await getTVPopularUseCase(const NoParameters());
     result.fold(
         (l) => emit(state.copyWith(
@@ -51,7 +51,7 @@ class TvBloc extends Bloc<TvEvent, TvState> {
             )));
   }
 
-  FutureOr<void> _getTopRatedTv(GetTVTopRatedEvent event, Emitter<TvState> emit) async {
+  FutureOr<void> _getTopRatedTv(GetTvTopRatedEvent event, Emitter<TvState> emit) async {
     final result = await getTvTopRatedUseCase(const NoParameters());
     result.fold(
         (l) => emit(state.copyWith(

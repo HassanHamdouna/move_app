@@ -7,6 +7,7 @@ import 'package:move_app/tvs/presentation/components/popular_tv_component.dart';
 import 'package:move_app/tvs/presentation/components/top_rated_tv_component.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_bloc.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_event.dart';
+import 'package:move_app/tvs/presentation/screens/tv_list_popular_and_top_rated_screen.dart';
 
 import '../../../core/services/services_locator.dart';
 
@@ -16,7 +17,7 @@ class TvScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<TvBloc>()..add(GetTVOnTheAirEvent())..add(GetTVPopularEvent())..add(GetTVTopRatedEvent()),
+      create: (context) => sl<TvBloc>()..add(GetTvOnTheAirEvent())..add(GetTvPopularEvent())..add(GetTvTopRatedEvent()),
       child: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SingleChildScrollView(
@@ -54,7 +55,7 @@ class TvScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => const MovieListPopularAndTopRatedScreen(nameScreen: "popular"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const TVListPopularAndTopRatedScreen(nameScreen: "popular"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -89,7 +90,7 @@ class TvScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => const MovieListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const TVListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

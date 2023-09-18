@@ -28,7 +28,7 @@ class TvScreen extends StatelessWidget {
               const PopularTvComponent(),
               topRated(context),
               const TopRatedTvComponent(),
-              const SizedBox(height: 50.0),
+              const SizedBox(height: 20.0),
 
             ],
           ),

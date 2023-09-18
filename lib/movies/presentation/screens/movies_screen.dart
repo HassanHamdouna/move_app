@@ -33,7 +33,7 @@ class MoviesScreen extends StatelessWidget {
               const PopularComponent(),
               topRated(context),
               const TopRatedComponent(),
-              const SizedBox(height: 50.0),
+              const SizedBox(height: 20.0),
             ],
           ),
         ),

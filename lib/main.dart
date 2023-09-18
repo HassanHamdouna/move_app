@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:move_app/core/global/theme/theme_data/theme_data_dark.dart';
 import 'package:move_app/core/services/services_locator.dart';
 import 'package:move_app/core/global/localization/app_strings.dart';
-import 'package:move_app/tvs/data/datasourcec/tv_remote_data_source.dart';
-
-import 'package:move_app/tvs/data/repository/tv_repository.dart';
-import 'package:move_app/tvs/domain/entities/tv.dart';
-import 'package:move_app/tvs/domain/repository/base_tv_repository.dart';
-import 'package:move_app/tvs/domain/usecaus/get_tv_on_the_air_usecase.dart';
-import 'package:move_app/tvs/presentation/screens/tv_screen.dart';
+import 'app/screen/bottom_navigation_bar_screen.dart';
 
 void main() async {
   ServicesLocator().init();
@@ -24,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
       theme: getThemeDataDark(),
-      home: const TvScreen(),
+      home: const BottomNavigationBarScreen(),
     );
   }
 }

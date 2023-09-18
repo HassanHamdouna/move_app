@@ -20,8 +20,7 @@ class TvDetailsBloc extends Bloc<TvDetailsEvent, TvDetailsState> {
 
   FutureOr<void> _getTvDetails(
       GetTvDetailsEvent event, Emitter<TvDetailsState> emit) async {
-    final result =
-        await getTvDetailsUseCase(TvDetailsParameters(idTv: event.id));
+    final result = await getTvDetailsUseCase(TvDetailsParameters(idTv: event.id));
     result.fold(
         (l) => emit(state.copeWith(
               detailMessages: l.message,
@@ -35,8 +34,8 @@ class TvDetailsBloc extends Bloc<TvDetailsEvent, TvDetailsState> {
 
   FutureOr<void> _getTvRecommendation(
       GetTvRecommendationEvent event, Emitter<TvDetailsState> emit) async {
-    final result = await getTvRecommendationUseCase(
-        TvRecommendationParameters(id: event.id));
+    final result = await getTvRecommendationUseCase(TvRecommendationParameters(id: event.id));
+
     result.fold(
         (l) => emit(state.copeWith(
             recommendationMessages: l.message,

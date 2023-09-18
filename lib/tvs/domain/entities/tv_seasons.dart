@@ -5,7 +5,7 @@ class TvSeasons extends Equatable {
   final int episodeCount;
   final String name;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
   final String airDate;
   final int seasonNumber;
   final double voteAverage;
@@ -14,13 +14,13 @@ class TvSeasons extends Equatable {
     required this.episodeCount,
     required this.name,
     required this.overview,
-    required this.posterPath,
+    this.posterPath,
     required this.airDate,
     required this.seasonNumber,
     required this.voteAverage});
 
   @override
-  List<Object> get props =>
+  List<Object?> get props =>
       [
         id,
         episodeCount,

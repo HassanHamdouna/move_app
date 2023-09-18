@@ -16,56 +16,61 @@ import 'package:move_app/tvs/domain/usecaus/get_tv_recommendation_usecase.dart';
 
 import '../../domain/repository/base_tv_repository.dart';
 
-class TvRepository  extends BaseTvRepository{
+class TvRepository extends BaseTvRepository {
   final BaseTvsRemoteDataSource baseRemoteDataSource;
 
   TvRepository(this.baseRemoteDataSource);
 
   @override
-  Future<Either<Failure, List<TvRecommendation>>> getTVRecommendation(TvRecommendationParameters parameters) {
-    // TODO: implement getTVRecommendation
-    throw UnimplementedError();
+  Future<Either<Failure, List<TvRecommendation>>> getTvRecommendation(
+      TvRecommendationParameters parameters) async {
+    final respones = await baseRemoteDataSource.getTvRecommendation(parameters);
+
+    try {
+      return Right(respones);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
   }
 
   @override
-  Future<Either<Failure, TvDetail>> getTvDetails(TvDetailsParameters parameters)async {
+  Future<Either<Failure, TvDetail>> getTvDetails(
+      TvDetailsParameters parameters) async {
     final respones = await baseRemoteDataSource.getTvDetail(parameters);
-    try{
+    try {
       return Right(respones);
-    }on ServerException catch(failure){
+    } on ServerException catch (failure) {
       return Left(ServerFailure(failure.errorMessageModel.statusMessage));
-
     }
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> getTvOnTheAir() async{
-   final respones = await baseRemoteDataSource.getTvOnTheAir();
-   try{
-     return Right(respones);
-   }on ServerException catch(failure){
-     return Left(ServerFailure(failure.errorMessageModel.statusMessage));
-   }
+  Future<Either<Failure, List<Tv>>> getTvOnTheAir() async {
+    final respones = await baseRemoteDataSource.getTvOnTheAir();
+    try {
+      return Right(respones);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> getTvPopular() async{
-  final respones = await baseRemoteDataSource.getTvPopular();
-  try{
-    return Right(respones);
-  }on ServerException catch(failure){
-    return Left(ServerFailure(failure.errorMessageModel.statusMessage));
-  }
+  Future<Either<Failure, List<Tv>>> getTvPopular() async {
+    final respones = await baseRemoteDataSource.getTvPopular();
+    try {
+      return Right(respones);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> getTvToRated() async{
+  Future<Either<Failure, List<Tv>>> getTvToRated() async {
     final respones = await baseRemoteDataSource.getTvTopRated();
-    try{
+    try {
       return Right(respones);
-    }on ServerException catch(failure){
+    } on ServerException catch (failure) {
       return Left(ServerFailure(failure.errorMessageModel.statusMessage));
     }
   }
-
 }

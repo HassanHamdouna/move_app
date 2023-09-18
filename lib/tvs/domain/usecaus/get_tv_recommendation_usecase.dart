@@ -12,7 +12,7 @@ class GetTvRecommendationUseCase extends BaseUseCase<List<TvRecommendation>, TvR
 
   @override
   Future<Either<Failure, List<TvRecommendation>>> call(TvRecommendationParameters parameters) async{
-    return await  baseTvRepository.getTVRecommendation(parameters);
+    return await  baseTvRepository.getTvRecommendation(parameters);
   }
 }
 

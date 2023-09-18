@@ -7,6 +7,7 @@ import 'package:move_app/core/utils/enums.dart';
 
 import 'package:move_app/tvs/presentation/controllers/tv_bloc.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_state.dart';
+import 'package:move_app/tvs/presentation/screens/tv_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedTvComponent extends StatelessWidget {
@@ -38,18 +39,21 @@ class TopRatedTvComponent extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   itemCount: state.topRatedTv.length,
                   itemBuilder: (context, index) {
-                    final movie = state.topRatedTv[index];
+                    final tv = state.topRatedTv[index];
                     return Container(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => TvDetailScreen(id: tv.id),));
+
+                        },
                         child: ClipRRect(
                           borderRadius:
                               const BorderRadius.all(Radius.circular(8.0)),
                           child: CachedNetworkImage(
                             width: 120.0,
                             fit: BoxFit.cover,
-                            imageUrl: ApiConstance.imageUrl(movie.backdropPath),
+                            imageUrl: ApiConstance.imageUrl(tv.backdropPath),
                             placeholder: (context, url) => Shimmer.fromColors(
                               baseColor: Colors.grey[850]!,
                               highlightColor: Colors.grey[800]!,

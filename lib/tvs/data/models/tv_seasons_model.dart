@@ -5,8 +5,7 @@ class TvSeasonsModel extends TvSeasons {
       {required super.id,
       required super.episodeCount,
       required super.name,
-      required super.overview,
-      required super.posterPath,
+      required super.overview, super.posterPath,
       required super.airDate,
       required super.seasonNumber,
       required super.voteAverage});
@@ -16,7 +15,7 @@ class TvSeasonsModel extends TvSeasons {
       episodeCount: json['episode_count'],
       name: json['name'],
       overview: json['overview'],
-      posterPath: json['poster_path'],
+      posterPath: json['poster_path']??'/ryQwRK3f6K06UJuMK9oVH1WhZdA.jpg',
       airDate: json['air_date'],
       seasonNumber: json['season_number'],
       voteAverage: json['vote_average']);

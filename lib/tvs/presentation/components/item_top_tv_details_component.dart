@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:move_app/core/network/api_constance.dart';
 import 'package:move_app/movies/presentation/screens/movie_detail_screen.dart';
+import 'package:move_app/tvs/presentation/screens/tv_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../core/utils/enums.dart';
@@ -34,9 +35,9 @@ class ItemTopTvDetailsComponent extends StatelessWidget {
             return ListView.builder(
               itemCount: state.topRatedTv.length,
               itemBuilder: (context, index) {
-                final movie = state.topRatedTv[index];
+                final tv = state.topRatedTv[index];
                 return InkWell(
-                  onTap: ()=> Navigator.push(context,MaterialPageRoute(builder: (context) => MovieDetailScreen(id: movie.id),)),
+                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => TvDetailScreen(id: tv.id),)),
                   child: Card(
                     elevation: 10,
                     color: Colors.black45,
@@ -47,7 +48,7 @@ class ItemTopTvDetailsComponent extends StatelessWidget {
                           Expanded(
                             flex: 1,
                             child: CachedNetworkImage(
-                              imageUrl: ApiConstance.imageUrl(movie.backdropPath),
+                              imageUrl: ApiConstance.imageUrl(tv.backdropPath),
                               height: 140.0,
                               width: 90,
                               fit: BoxFit.cover,
@@ -86,7 +87,7 @@ class ItemTopTvDetailsComponent extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(movie.name,
+                                Text(tv.name,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
@@ -111,7 +112,7 @@ class ItemTopTvDetailsComponent extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(4.0),
                                       ),
                                       child: Text(
-                                        movie.firstAirDate.split('-')[0],
+                                        tv.firstAirDate.split('-')[0],
                                         style: const TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
@@ -126,14 +127,14 @@ class ItemTopTvDetailsComponent extends StatelessWidget {
                                       color: Colors.amber,
                                       size: 20.0,
                                     ),
-                                    Text(movie.voteAverage.toString()),
+                                    Text(tv.voteAverage.toString()),
                                   ],
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
                                 Center(
-                                  child: Text(movie.overview,
+                                  child: Text(tv.overview,
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
                                       style: GoogleFonts.poppins(

@@ -7,6 +7,7 @@ import 'package:move_app/movies/presentation/screens/movie_detail_screen.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_bloc.dart';
 
 import 'package:move_app/tvs/presentation/controllers/tv_state.dart';
+import 'package:move_app/tvs/presentation/screens/tv_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../core/utils/enums.dart';
@@ -35,9 +36,9 @@ class ItemPopularTVDetailsComponent extends StatelessWidget {
             return ListView.builder(
               itemCount: state.popularTv.length,
               itemBuilder: (context, index) {
-                final movie = state.popularTv[index];
+                final tv = state.popularTv[index];
                 return InkWell(
-                  onTap: ()=> Navigator.push(context,MaterialPageRoute(builder: (context) => MovieDetailScreen(id: movie.id),)),
+                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => TvDetailScreen(id: tv.id),)),
                   child: Card(
                     elevation: 10,
                     color: Colors.black45,
@@ -48,7 +49,7 @@ class ItemPopularTVDetailsComponent extends StatelessWidget {
                           Expanded(
                             flex: 1,
                             child: CachedNetworkImage(
-                              imageUrl: ApiConstance.imageUrl(movie.backdropPath),
+                              imageUrl: ApiConstance.imageUrl(tv.backdropPath),
                               height: 140.0,
                               width: 90,
                               fit: BoxFit.cover,
@@ -87,7 +88,7 @@ class ItemPopularTVDetailsComponent extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(movie.name,
+                                Text(tv.name,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
                                         color: Colors.white,
@@ -112,7 +113,7 @@ class ItemPopularTVDetailsComponent extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(4.0),
                                       ),
                                       child: Text(
-                                        movie.firstAirDate.split('-')[0],
+                                        tv.firstAirDate.split('-')[0],
                                         style: const TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
@@ -128,7 +129,7 @@ class ItemPopularTVDetailsComponent extends StatelessWidget {
                                       color: Colors.amber,
                                       size: 20.0,
                                     ),
-                                    Text('${movie.voteAverage}',style: GoogleFonts.poppins(
+                                    Text('${tv.voteAverage}',style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 1.2,
                                       color: Colors.white
@@ -140,7 +141,7 @@ class ItemPopularTVDetailsComponent extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Center(
-                                  child: Text(movie.overview,
+                                  child: Text(tv.overview,
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
                                       style: GoogleFonts.poppins(

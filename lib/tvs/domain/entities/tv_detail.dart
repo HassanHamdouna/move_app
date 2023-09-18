@@ -12,6 +12,7 @@ class TvDetail extends Equatable {
   final int voteCount;
   final int numberOfSeasons;
   final int numberOfEpisodes;
+  final int episodeRunTime;
   final List<TvSeasons> seasons;
   final List<TvGenres> genres;
 
@@ -25,12 +26,13 @@ class TvDetail extends Equatable {
     required this.voteCount,
     required this.numberOfSeasons,
     required this.numberOfEpisodes,
+    required this.episodeRunTime,
     required this.seasons,
     required this.genres
   });
 
   @override
-  List<Object> get props =>
+  List<Object?> get props =>
       [
         id,
         name,
@@ -41,6 +43,7 @@ class TvDetail extends Equatable {
         voteCount,
         numberOfSeasons,
         numberOfEpisodes,
+        episodeRunTime,
         seasons,
         genres,
       ];

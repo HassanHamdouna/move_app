@@ -13,11 +13,11 @@ class TvDetailsState extends Equatable {
   final String recommendationMessages;
 
   const TvDetailsState({
-    this.tvDetail,
-    this.detailState = RequestState.loaded,
+    this.tvDetail ,
+    this.detailState = RequestState.loading,
     this.detailMessages = '',
     this.tvRecommendation = const [],
-    this.recommendationState = RequestState.loaded,
+    this.recommendationState = RequestState.loading,
     this.recommendationMessages = '',
   });
 

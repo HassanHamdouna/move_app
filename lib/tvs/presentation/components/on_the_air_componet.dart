@@ -10,6 +10,8 @@ import 'package:move_app/movies/presentation/screens/movie_detail_screen.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_bloc.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_state.dart';
 
+import '../screens/tv_detail_screen.dart';
+
 class OnTheAirComponent extends StatelessWidget {
   const OnTheAirComponent({
     super.key,
@@ -39,9 +41,8 @@ class OnTheAirComponent extends StatelessWidget {
                 items: state.onTheAirTv.map(
                       (item) {
                     return GestureDetector(
-                      key: const Key('openMovieMinimalDetail'),
                       onTap: () {
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => TvDetailScreen(id: item.id),));
                       },
                       child: Stack(
                         children: [

@@ -15,8 +15,7 @@ abstract class BaseTvsRemoteDataSource {
 
   Future<List<TvModel>> getTvTopRated();
 
-  Future<List<TvRecommendationModel>> getTvRecommendation(
-      TvRecommendationParameters parameters);
+  Future<List<TvRecommendationModel>> getTvRecommendation(TvRecommendationParameters parameters);
 
   Future<TvDetailModel> getTvDetail(TvDetailsParameters parameters);
 }
@@ -60,10 +59,10 @@ class TvsRemoteDataSource extends BaseTvsRemoteDataSource {
 
   @override
   Future<TvDetailModel> getTvDetail(TvDetailsParameters parameters) async {
-    final respones =
-        await Dio().get(ApiConstance.detailsTvPath(parameters.idTv.toString()));
+    final respones = await Dio().get(ApiConstance.detailsTvPath(parameters.idTv.toString()));
     if (respones.statusCode == 200) {
-      return respones.data;
+      return TvDetailModel.fromJson(respones.data);
+
     } else {
       throw ErrorMessageModel.formJson(respones.data);
     }
@@ -72,8 +71,7 @@ class TvsRemoteDataSource extends BaseTvsRemoteDataSource {
   @override
   Future<List<TvRecommendationModel>> getTvRecommendation(
       TvRecommendationParameters parameters) async {
-    final respones = await Dio()
-        .get(ApiConstance.recommendationsTVPath(parameters.id.toString()));
+    final respones = await Dio().get(ApiConstance.recommendationsTVPath(parameters.id.toString()));
     if (respones.statusCode == 200) {
       return List<TvRecommendationModel>.from((respones.data["results"] as List)
           .map((e) => TvRecommendationModel.formJson(e)));

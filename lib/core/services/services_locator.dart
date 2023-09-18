@@ -11,11 +11,15 @@ import 'package:move_app/movies/presentation/controllers/movie_details_bloc.dart
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
 import 'package:move_app/tvs/data/datasourcec/tv_remote_data_source.dart';
 import 'package:move_app/tvs/data/repository/tv_repository.dart';
+import 'package:move_app/tvs/domain/entities/tv_detail.dart';
 import 'package:move_app/tvs/domain/repository/base_tv_repository.dart';
+import 'package:move_app/tvs/domain/usecaus/get_tv_details_usecase.dart';
 import 'package:move_app/tvs/domain/usecaus/get_tv_on_the_air_usecase.dart';
 import 'package:move_app/tvs/domain/usecaus/get_tv_popular_usecase.dart';
+import 'package:move_app/tvs/domain/usecaus/get_tv_recommendation_usecase.dart';
 import 'package:move_app/tvs/domain/usecaus/get_tv_top_rated_usecase.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_bloc.dart';
+import 'package:move_app/tvs/presentation/controllers/tv_details_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -26,17 +30,22 @@ class ServicesLocator {
     sl.registerFactory(() => MovieDetailsBloc(sl(), sl(),));
     /// Bloc Tv
     sl.registerFactory(() => TvBloc(sl(), sl(), sl()));
+    sl.registerFactory(() => TvDetailsBloc(sl(), sl()));
 
     /// Use Cases Movie
     sl.registerLazySingleton(() => GetNowPlayingMoviesUseCase(sl()));
     sl.registerLazySingleton(() => GetPopularMoviesUseCase(sl()));
     sl.registerLazySingleton(() => GetTopRatedMoviesUseCase(sl()));
+
     sl.registerLazySingleton(() => GetMovieDetailsUseCase(sl()));
     sl.registerLazySingleton(() => GetMovieRecommendationUseCase(sl()));
     /// Use Cases Tv
     sl.registerLazySingleton(() => GetTvOnTheAirUseCase(sl()));
     sl.registerLazySingleton(() => GetTvPopularUseCase(sl()));
     sl.registerLazySingleton(() => GetTvTopRatedUseCase(sl()));
+
+    sl.registerLazySingleton(() => GetTvDetailsUseCase(sl()));
+    sl.registerLazySingleton(() => GetTvRecommendationUseCase(sl()));
 
     /// Repository Movie
     sl.registerLazySingleton<BaseMoviesRepository>(() => MoviesRepository(sl()));

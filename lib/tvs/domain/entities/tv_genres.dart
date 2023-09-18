@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 class TvGenres extends Equatable {
@@ -8,5 +7,5 @@ class TvGenres extends Equatable {
   const TvGenres({required this.id, required this.name});
 
   @override
-  List<Object> get props => [id, name];
+  List<Object?> get props => [id, name];
 }

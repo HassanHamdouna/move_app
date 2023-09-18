@@ -17,5 +17,5 @@ abstract class BaseTvRepository {
   Future<Either<Failure, TvDetail>> getTvDetails(
       TvDetailsParameters parameters);
 
-  Future<Either<Failure, List<TvRecommendation>>> getTVRecommendation(TvRecommendationParameters parameters);
+  Future<Either<Failure, List<TvRecommendation>>> getTvRecommendation(TvRecommendationParameters parameters);
 }

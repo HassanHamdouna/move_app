@@ -8,22 +8,22 @@ import 'package:move_app/tvs/data/models/tv_recommendation_model.dart';
 import 'package:move_app/tvs/domain/usecaus/get_tv_details_usecase.dart';
 import 'package:move_app/tvs/domain/usecaus/get_tv_recommendation_usecase.dart';
 
-abstract class BaseTvRemoteDataSource {
-  Future<List<TvModel>> getTVOnTheAir();
+abstract class BaseTvsRemoteDataSource {
+  Future<List<TvModel>> getTvOnTheAir();
 
-  Future<List<TvModel>> getTVPopular();
+  Future<List<TvModel>> getTvPopular();
 
-  Future<List<TvModel>> getTVTopRated();
+  Future<List<TvModel>> getTvTopRated();
 
-  Future<List<TvRecommendationModel>> getTVRecommendation(
+  Future<List<TvRecommendationModel>> getTvRecommendation(
       TvRecommendationParameters parameters);
 
-  Future<TvDetailModel> getTVDetail(TvDetailsParameters parameters);
+  Future<TvDetailModel> getTvDetail(TvDetailsParameters parameters);
 }
 
-class TvRemoteDataSource extends BaseTvRemoteDataSource {
+class TvsRemoteDataSource extends BaseTvsRemoteDataSource {
   @override
-  Future<List<TvModel>> getTVOnTheAir() async {
+  Future<List<TvModel>> getTvOnTheAir() async {
     final response = await Dio().get(ApiConstance.onTheAirTvPath);
     if (response.statusCode == 200) {
       return List<TvModel>.from((response.data["results"] as List).map(
@@ -36,7 +36,7 @@ class TvRemoteDataSource extends BaseTvRemoteDataSource {
   }
 
   @override
-  Future<List<TvModel>> getTVPopular() async {
+  Future<List<TvModel>> getTvPopular() async {
     final respones = await Dio().get(ApiConstance.popularTvPath);
     if (respones.statusCode == 200) {
       return List<TvModel>.from((respones.data["results"] as List).map(
@@ -48,7 +48,7 @@ class TvRemoteDataSource extends BaseTvRemoteDataSource {
   }
 
   @override
-  Future<List<TvModel>> getTVTopRated() async {
+  Future<List<TvModel>> getTvTopRated() async {
     final respones = await Dio().get(ApiConstance.topRatedTvPath);
     if (respones.statusCode == 200) {
       return List<TvModel>.from(
@@ -59,7 +59,7 @@ class TvRemoteDataSource extends BaseTvRemoteDataSource {
   }
 
   @override
-  Future<TvDetailModel> getTVDetail(TvDetailsParameters parameters) async {
+  Future<TvDetailModel> getTvDetail(TvDetailsParameters parameters) async {
     final respones =
         await Dio().get(ApiConstance.detailsTvPath(parameters.idTv.toString()));
     if (respones.statusCode == 200) {
@@ -70,7 +70,7 @@ class TvRemoteDataSource extends BaseTvRemoteDataSource {
   }
 
   @override
-  Future<List<TvRecommendationModel>> getTVRecommendation(
+  Future<List<TvRecommendationModel>> getTvRecommendation(
       TvRecommendationParameters parameters) async {
     final respones = await Dio()
         .get(ApiConstance.recommendationsTVPath(parameters.id.toString()));

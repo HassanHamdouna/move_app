@@ -28,13 +28,13 @@ class TvBloc extends Bloc<TvEvent, TvState> {
     final result = await getTvOnTheAirUseCase(const NoParameters());
     result.fold(
         (l) => emit(state.copyWith(
-              topRatedMessage: l.message,
-              topRatedState: RequestState.error,
+              onTheAirMessage: l.message,
+          onTheAirState: RequestState.error,
             )),
-        (r) => state.copyWith(
-              topRatedTv: r,
-              topRatedState: RequestState.loaded,
-            ));
+        (r) => emit(state.copyWith(
+          onTheAirTv: r,
+          onTheAirState: RequestState.loaded,
+            )));
   }
 
   FutureOr<void> _getPopularTv(
@@ -42,26 +42,25 @@ class TvBloc extends Bloc<TvEvent, TvState> {
     final result = await getTVPopularUseCase(const NoParameters());
     result.fold(
         (l) => emit(state.copyWith(
-              topRatedMessage: l.message,
-              topRatedState: RequestState.error,
+              popularMessage: l.message,
+          popularState: RequestState.error,
             )),
-        (r) => state.copyWith(
-              topRatedTv: r,
-              topRatedState: RequestState.loaded,
-            ));
+        (r) => emit(state.copyWith(
+          popularTv: r,
+          popularState: RequestState.loaded,
+            )));
   }
 
-  FutureOr<void> _getTopRatedTv(
-      GetTVTopRatedEvent event, Emitter<TvState> emit) async {
+  FutureOr<void> _getTopRatedTv(GetTVTopRatedEvent event, Emitter<TvState> emit) async {
     final result = await getTvTopRatedUseCase(const NoParameters());
     result.fold(
         (l) => emit(state.copyWith(
               topRatedMessage: l.message,
               topRatedState: RequestState.error,
             )),
-        (r) => state.copyWith(
+        (r) => emit(state.copyWith(
               topRatedTv: r,
               topRatedState: RequestState.loaded,
-            ));
+            )));
   }
 }

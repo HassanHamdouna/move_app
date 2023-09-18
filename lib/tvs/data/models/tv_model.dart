@@ -18,6 +18,6 @@ class TvModel extends Tv {
       genreIds: List<int>.from(json['genre_ids'].map((e) => e)),
       backdropPath: json['backdrop_path'],
       firstAirDate: json['first_air_date'],
-      voteAverage: json['vote_average'],
+      voteAverage: json['vote_average'].toDouble(),
       voteCount: json['vote_count']);
 }

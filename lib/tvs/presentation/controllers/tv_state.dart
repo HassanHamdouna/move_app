@@ -16,13 +16,13 @@ class TvState extends Equatable {
   const TvState({
     this.onTheAirTv = const [],
     this.onTheAirState = RequestState.loading,
-    this.onTheAirMessage = "",
+    this.onTheAirMessage = '',
     this.popularTv = const [],
     this.popularState = RequestState.loading,
-    this.popularMessage = "",
+    this.popularMessage = '',
     this.topRatedTv = const [],
     this.topRatedState = RequestState.loading,
-    this.topRatedMessage = "",
+    this.topRatedMessage = '',
   });
 
   TvState copyWith({

@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-
 import 'package:move_app/movies/data/datasourec/movie_remote_data_source.dart';
 import 'package:move_app/movies/data/repository/movies_repository.dart';
 import 'package:move_app/movies/domain/repository/base_movie_repository.dart';
@@ -10,7 +9,7 @@ import 'package:move_app/movies/domain/usecase/get_movie_recommendation_usecase.
 import 'package:move_app/movies/domain/usecase/get_popular_movies_usecase.dart';
 import 'package:move_app/movies/presentation/controllers/movie_details_bloc.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
-import 'package:move_app/tvs/data/datasource/tv_remote_data_source.dart';
+import 'package:move_app/tvs/data/datasourcec/tv_remote_data_source.dart';
 import 'package:move_app/tvs/data/repository/tv_repository.dart';
 import 'package:move_app/tvs/domain/repository/base_tv_repository.dart';
 import 'package:move_app/tvs/domain/usecaus/get_tv_on_the_air_usecase.dart';
@@ -47,6 +46,6 @@ class ServicesLocator {
     /// DATA SOURCE Movie
     sl.registerLazySingleton<BaseMovieRemoteDataSource>(() => MovieRemoteDataSource());
     /// DATA SOURCE TV
-    sl.registerLazySingleton<BaseTvRemoteDataSource>(() => TvRemoteDataSource());
+    sl.registerLazySingleton<BaseTvsRemoteDataSource>(() => TvsRemoteDataSource());
   }
 }

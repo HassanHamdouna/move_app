@@ -42,8 +42,13 @@ class RecommendationsTVComponent extends StatelessWidget {
                );
                case RequestState.loaded:
                return SliverGrid(
-                 delegate: SliverChildBuilderDelegate(
-                       (context, index) {
+                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                   mainAxisSpacing: 8.0,
+                   crossAxisSpacing: 8.0,
+                   childAspectRatio: 0.7,
+                   crossAxisCount: 3,
+                 ),
+                 delegate: SliverChildBuilderDelegate((context, index) {
                      final recommendation = state.tvRecommendation[index];
                      return FadeInUp(
                        from: 20,
@@ -76,18 +81,8 @@ class RecommendationsTVComponent extends StatelessWidget {
                    },
                    childCount: state.tvRecommendation.length,
                  ),
-                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                   mainAxisSpacing: 8.0,
-                   crossAxisSpacing: 8.0,
-                   childAspectRatio: 0.7,
-                   crossAxisCount: 3,
-                 ),
                );
              case RequestState.error:
-              /* return SizedBox(
-                 height: 400,
-                 child: Center(child: Text(state.movieRecommendationMessage)),
-               );*/
                return SliverGrid(
                  delegate: SliverChildBuilderDelegate(
                        (context, index) {

@@ -5,7 +5,10 @@ import 'package:move_app/movies/domain/entities/movie_recommendation.dart';
 MovieDetail movieDetailDummy = const MovieDetail(
   backdropPath: "/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg",
   genres: [
-    Genres(name: 'Family', id: 10751),
+    Genres(name: 'hassan', id: 213),
+    Genres(name: 'ail', id: 32),
+    Genres(name: 'hakd', id: 2323),
+    Genres(name: 'Family', id: 1234),
   ],
   id: 438148,
   overview:

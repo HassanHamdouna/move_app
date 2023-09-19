@@ -191,7 +191,7 @@ class _EpisodesTvComponentState extends State<EpisodesTvComponent> {
                                           width: 10,
                                         ),
                                         Text(
-                                          convertDateFormat(tv.airDate),
+                                          convertDateFormat(tv.airDate!),
                                           style: const TextStyle(
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
@@ -213,7 +213,8 @@ class _EpisodesTvComponentState extends State<EpisodesTvComponent> {
                           const SizedBox(
                             height: 10,
                           ),
-                          Center(
+                          Align(
+                            alignment: AlignmentDirectional.centerStart,
                             child: Text(tv.overview,
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,

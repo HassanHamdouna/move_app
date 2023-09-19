@@ -6,7 +6,7 @@ class TvSeasons extends Equatable {
   final String name;
   final String overview;
   final String? posterPath;
-  final String airDate;
+  final String? airDate;
   final int seasonNumber;
   final double voteAverage;
 
@@ -15,7 +15,7 @@ class TvSeasons extends Equatable {
     required this.name,
     required this.overview,
     this.posterPath,
-    required this.airDate,
+    this.airDate,
     required this.seasonNumber,
     required this.voteAverage});
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:move_app/app/screen/video_player_screen.dart';
 import 'package:move_app/core/global/theme/theme_data/theme_data_dark.dart';
 import 'package:move_app/core/services/services_locator.dart';
 import 'package:move_app/core/global/localization/app_strings.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
       theme: getThemeDataDark(),
-      home: const BottomNavigationBarScreen(),
+      home: const VideoPlayerScreen(),
     );
   }
 }

@@ -1,9 +1,11 @@
 # Movies App
 
-<img width="355" alt="Screenshot 2023-09-21 at 6 31 45 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/bf6a66fe-60b2-4063-ab01-3373aef55838">
-<img width="355" alt="Screenshot 2023-09-21 at 6 31 27 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/06670a09-524c-4fc4-b3ba-9faafe454d40">
-<img width="355" alt="Screenshot 2023-09-21 at 6 30 30 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/92ac1c40-e7cd-4198-96d4-a6662f16d78d">
-<img width="355" alt="Screenshot 2023-09-21 at 6 30 44 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/dfd5aaed-def4-482b-8ba1-1663b718b8fb">
+<img width="300" alt="Screenshot 2023-09-21 at 6 31 45 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/bf6a66fe-60b2-4063-ab01-3373aef55838">
+<img width="300" alt="Screenshot 2023-09-21 at 6 31 27 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/06670a09-524c-4fc4-b3ba-9faafe454d40">
+<img width="300" alt="Screenshot 2023-09-21 at 6 30 30 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/92ac1c40-e7cd-4198-96d4-a6662f16d78d">
+<img width="300" alt="Screenshot 2023-09-21 at 6 30 44 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/dfd5aaed-def4-482b-8ba1-1663b718b8fb">
+<img width="300" alt="Screenshot 2023-09-21 at 8 55 13 PM" src="https://github.com/HassanHamdouna/move_app/assets/97970072/8f8ea38e-d74e-4e9e-b8c2-3274c145bd2a">
+
 
 
 ## Description

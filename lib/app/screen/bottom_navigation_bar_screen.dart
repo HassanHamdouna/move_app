@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:move_app/movies/presentation/screens/movies_screen.dart';
 import 'package:move_app/tvs/presentation/screens/tv_screen.dart';
 
@@ -59,8 +60,20 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
       backgroundColor: Colors.grey.shade900,
       body: isConnected
           ? _screen[_currentIndex].widgetScreen
-          : const Center(
-        child: Text('Please check your internet connection.'),
+          :  Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  [
+            const Icon(Icons.wifi_off,color: Colors.red,size: 100,),
+            const SizedBox(
+              height: 30,
+            ),
+            Text('Please check your internet connection.',style: GoogleFonts.poppins(
+              fontSize: 18,
+            )),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

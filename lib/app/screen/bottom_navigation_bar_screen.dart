@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:move_app/movies/presentation/screens/movies_screen.dart';
 import 'package:move_app/tvs/presentation/screens/tv_screen.dart';
@@ -19,11 +22,46 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     BnScreen(widgetScreen: const TvScreen()),
   ];
 
+  late ConnectivityResult _connectivityResult;
+  late StreamSubscription<ConnectivityResult> _streamSubscription;
+  var isConnected = true; // Assume there's an initial connection
+
+  @override
+  void initState() {
+    super.initState();
+    checkInternet();
+    startS();
+  }
+
+  Future<void> checkInternet() async {
+    _connectivityResult = await Connectivity().checkConnectivity();
+    setState(() {
+      isConnected = _connectivityResult != ConnectivityResult.none;
+    });
+  }
+
+  void startS() {
+    _streamSubscription =
+        Connectivity().onConnectivityChanged.listen((event) async {
+          checkInternet();
+        });
+  }
+
+  @override
+  void dispose() {
+    _streamSubscription.cancel(); // Dispose of the stream subscription
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
-      body: _screen[_currentIndex].widgetScreen,
+      body: isConnected
+          ? _screen[_currentIndex].widgetScreen
+          : const Center(
+        child: Text('Please check your internet connection.'),
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [

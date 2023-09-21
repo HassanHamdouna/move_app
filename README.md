@@ -103,7 +103,7 @@ To run the Movies App on your local machine, follow these installation steps:
 
 ```bash
 # Clone the repository:
-git clone https://github.com/yourusername/movies-app.git
+git clone https://github.com/HassanHamdouna/move_app
 
 # Navigate to the app directory:
 cd movies-app

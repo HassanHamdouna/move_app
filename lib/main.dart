@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:move_app/core/global/theme/theme_data/theme_data_dark.dart';
 import 'package:move_app/core/services/services_locator.dart';
 import 'package:move_app/core/global/localization/app_strings.dart';
+import 'package:move_app/core/utils/context_extenssion.dart';
 import 'app/screen/bottom_navigation_bar_screen.dart';
 
 void main() async {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
       theme: getThemeDataDark(),
-      home: const BottomNavigationBarScreen(),
+      initialRoute: '/bottom_navigation_bar_screen',
+      routes: context.routes,
     );
   }
 }

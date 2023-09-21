@@ -55,7 +55,7 @@ class TvScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const TVListPopularAndTopRatedScreen(nameScreen: "popular"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const TvListPopularAndTopRatedScreen(nameScreen: "popular"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -90,7 +90,7 @@ class TvScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const TVListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const TvListPopularAndTopRatedScreen(nameScreen: "top Rated"),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

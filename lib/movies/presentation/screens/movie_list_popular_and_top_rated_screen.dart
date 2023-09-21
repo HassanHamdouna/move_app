@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:move_app/core/utils/context_extenssion.dart';
 import 'package:move_app/movies/presentation/components/item_popular_details_component.dart';
 import 'package:move_app/movies/presentation/components/item_top_details_component.dart';
 import 'package:move_app/movies/presentation/controllers/movies_bloc.dart';
@@ -20,7 +21,7 @@ class MovieListPopularAndTopRatedScreen extends StatelessWidget {
         ..add(GetTopRatedMoviesEvent()),
       child: Scaffold(
         appBar: AppBar(
-          leading:  IconButton(onPressed: ()=>Navigator.pop(context),icon: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
+          leading:  IconButton(onPressed: ()=>context.pop(),icon: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
           backgroundColor: Colors.black26,
           title: isPopularScreen
               ? const Text("popular Movies")

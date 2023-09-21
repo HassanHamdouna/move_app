@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:move_app/app/screen/video_player_screen.dart';
 import 'package:move_app/core/network/api_constance.dart';
+import 'package:move_app/core/utils/context_extenssion.dart';
 import 'package:move_app/core/utils/enums.dart';
 import 'package:move_app/movies/domain/entities/genres.dart';
 import 'package:move_app/movies/presentation/components/recommendations_movies_component.dart';
@@ -32,6 +33,7 @@ class DetailMoviesComponent extends StatelessWidget {
             return CustomScrollView(
               slivers: [
                 SliverAppBar(
+                  leading: IconButton(onPressed: ()=> context.pop(),icon: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
                   pinned: true,
                   expandedHeight: 250.0,
                   flexibleSpace: FlexibleSpaceBar(
@@ -55,7 +57,7 @@ class DetailMoviesComponent extends StatelessWidget {
                         },
                         blendMode: BlendMode.dstIn,
                         child: InkWell(
-                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoPlayerScreen(),)),
+                          onTap: () => context.navigateTo('/video_player_screen'),
                           child: CachedNetworkImage(
                             width: MediaQuery.of(context).size.width,
                             imageUrl: ApiConstance.imageUrl(

@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:move_app/core/utils/context_extenssion.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_details_bloc.dart';
 import 'package:move_app/tvs/presentation/controllers/tv_details_event.dart';
 import 'package:move_app/tvs/presentation/screens/tv_detail_tab_bar_screen.dart';
@@ -43,7 +44,7 @@ class TvDetailScreen extends StatelessWidget {
                       pinned: true,
                       expandedHeight: 250.0,
                       leading: IconButton(
-                          onPressed: () => Navigator.pop(context),
+                          onPressed: () => context.pop(),
                           icon: const Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
